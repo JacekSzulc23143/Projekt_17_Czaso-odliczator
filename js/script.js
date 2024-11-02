@@ -17,7 +17,19 @@ const saveBtn = document.querySelector(".save");
 const eventSpan = document.querySelector(".event");
 let userTime;
 
+// funkcja aktualizująca dane w ustawieniach
+const appUpdate = () => {
+	eventSpan.textContent = eventName.value;
+	userTime = new Date(
+		`${eventDay.value} ${eventMonth.value} ${eventYear.value}`
+	);
+	console.log(userTime);
+	imageSection.style.backgroundImage = `url("${eventImage.value}")`;
+};
+
 // funkcja wywołująca panel ustawienia
 settingsBtn.addEventListener("click", () => {
 	settings.classList.toggle("active");
 });
+
+saveBtn.addEventListener("click", appUpdate);
